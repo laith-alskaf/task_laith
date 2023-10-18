@@ -39,10 +39,13 @@ class CustomContainer extends StatelessWidget {
         ),
         showIconRemove ?? false
             ? Positioned(
+                top: screenHeight(220),
+                left: screenWidth(80),
                 child: InkWell(
                     onTap: onTap,
                     child: Icon(
-                      Icons.remove_circle_outlined,
+                      Icons.highlight_remove,
+                      color: AppColors.whiteColor,
                       size: screenWidth(15),
                     )))
             : const SizedBox(),

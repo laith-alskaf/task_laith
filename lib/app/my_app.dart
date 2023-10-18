@@ -3,14 +3,9 @@ import 'package:task/ui/views/home_view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -24,7 +19,7 @@ class _MyAppState extends State<MyApp> {
           secondary: Colors.transparent.withOpacity(0),
         ),
       ),
-      home: const MyView(),
+      home:  MyView(),
     );
   }
 }

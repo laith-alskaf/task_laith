@@ -9,14 +9,9 @@ import 'package:task/ui/views/home_view/home_view_widget/dragtarget_widget.dart'
 
 import 'home_view_widget/draggable_widget.dart';
 
-class MyView extends StatefulWidget {
-  const MyView({super.key});
+class MyView extends StatelessWidget {
+   MyView({super.key});
 
-  @override
-  State<MyView> createState() => _MyViewState();
-}
-
-class _MyViewState extends State<MyView> {
   HomeViewController controller = Get.put(HomeViewController());
 
   @override
