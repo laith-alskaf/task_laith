@@ -1,25 +1,12 @@
 import 'package:get/get.dart';
 
 class HomeViewController extends GetxController {
-  List<String> classifications = [
-    'إطارات العمل',
-    'لغات البرمجة',
-    'العاب',
-    'غير ذالك'
-  ];
+  RxList<String> classifications =
+      ['إطارات العمل', 'لغات البرمجة', 'العاب', 'غير ذالك'].obs;
   RxList<List> droppedData = <List>[].obs;
 
-  updateData(String dataNew, int index) {
-    droppedData[index].add(dataNew);
-    listOfText.remove(dataNew);
-  }
-
-  removeFromClass(String dataNew, int index) {
-    droppedData[index].remove(dataNew);
-    listOfText.add(dataNew);
-  }
-
   RxList<String> listOfText = [
+    'JavaScript JavaScript',
     'بيس 2014',
     'Python',
     'Express.js',
@@ -27,7 +14,6 @@ class HomeViewController extends GetxController {
     'Angular',
     'JavaScript',
     'Car',
-    'JavaScript JavaScript',
     'Vue.js',
     'جنرال',
     'Mobile',
@@ -38,5 +24,15 @@ class HomeViewController extends GetxController {
     // TODO: implement onInit
     droppedData.value =
         List<List<String>>.generate(classifications.length, (_) => <String>[]);
+  }
+
+  updateData(String dataNew, int index) {
+    droppedData[index].add(dataNew);
+    listOfText.remove(dataNew);
+  }
+
+  removeFromClass(String dataNew, int index) {
+    droppedData[index].remove(dataNew);
+    listOfText.add(dataNew);
   }
 }
