@@ -33,7 +33,7 @@ class CustomRowText extends StatelessWidget {
                     fontsize: width * 0.04,
                     fontWeight: FontWeight.bold,
                     textcolor: AppColors.colorDropData),
-                (screenWidth(20)).pw,
+                (screenWidth(90)).pw,
                 Expanded(
                   flex: 10,
                   child: CustomText(

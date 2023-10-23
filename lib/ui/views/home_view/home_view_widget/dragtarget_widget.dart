@@ -9,28 +9,21 @@ class DragTargetWidget extends StatelessWidget {
   DragTargetWidget(
       {super.key,
       required this.text,
-      // required this.dataDisplay,
       required this.index,
       this.onTap});
 
   final int index;
   final String text;
-  // final List<String> dataDisplay;
   final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return DragTarget(
       builder: (context, List<dynamic> candidateData, rejectedData) {
-        return Column(
-          children: [
-            CustomContainer(fontSizeText: width*0.05,
-              text: text,
-              textOfDrop:  homeController.droppedData[index],
-              index:index,
-            ),
-            (screenWidth(20)).ph,
-          ],
+        return CustomContainer(fontSizeText: width*0.05,
+          text: text,
+          textOfDrop:  homeController.droppedData[index],
+          index:index,
         );
       },
       onAccept: (String data) {

@@ -6,7 +6,8 @@ import 'package:task/ui/shared/utils.dart';
 class DraggableWidget extends StatelessWidget {
   final String data;
 
-   DraggableWidget({super.key, required this.data});
+  const DraggableWidget({super.key, required this.data});
+
   @override
   Widget build(BuildContext context) {
     int textLength = data.length;
@@ -15,19 +16,16 @@ class DraggableWidget extends StatelessWidget {
       data: data,
       child: CustomContainer(
         text: data,
-        // heightContainer: screenHeight(15),
         widthContainer: buttonWidth > width * 0.15 ? buttonWidth : width * 0.19,
       ),
       feedback: CustomContainer(
         text: data,
         color: AppColors.darkPurpleColorOpacity,
-        // heightContainer: screenHeight(15),
         widthContainer: buttonWidth > width * 0.15 ? buttonWidth : width * 0.19,
       ),
-      childWhenDragging:CustomContainer(
+      childWhenDragging: CustomContainer(
         text: data,
         color: AppColors.darkPurpleColorOpacity,
-        // heightContainer: screenHeight(15),
         widthContainer: buttonWidth > width * 0.15 ? buttonWidth : width * 0.19,
       ),
     );

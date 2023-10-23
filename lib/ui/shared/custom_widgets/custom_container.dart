@@ -24,35 +24,31 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: color ?? AppColors.darkPurpleColor,
-            ),
-            width: widthContainer ?? screenWidth(2.7),
-            child: Column(
-              children: [
-                (screenWidth(20)).ph,
-                Center(
-                    child: CustomText(
-                  fontsize: fontSizeText,
-                  fontWeight: FontWeight.bold,
-                  text: text,
-                  textcolor: AppColors.whiteColor,
-                )),
-                (screenWidth(30)).ph,
-                textOfDrop != null
-                    ? CustomRowText(
-                        index: index ?? 1,
-                        textOfDrop: textOfDrop ?? ['جافا'],
-                      )
-                    : const SizedBox(),
-                (screenWidth(30)).ph,
-              ],
+    return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: color ?? AppColors.darkPurpleColor,
+        ),
+        width: widthContainer ?? screenWidth(2.7),
+        child: Column(
+          children: [
+            (screenWidth(20)).ph,
+            Center(
+                child: CustomText(
+              fontsize: fontSizeText,
+              fontWeight: FontWeight.bold,
+              text: text,
+              textcolor: AppColors.whiteColor,
             )),
-      ],
-    );
+            (screenWidth(30)).ph,
+            textOfDrop != null
+                ? CustomRowText(
+                    index: index ?? 1,
+                    textOfDrop: textOfDrop ?? ['جافا'],
+                  )
+                : const SizedBox(),
+            (screenWidth(30)).ph,
+          ],
+        ));
   }
 }

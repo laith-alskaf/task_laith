@@ -10,7 +10,7 @@ import 'package:task/ui/views/home_view/home_view_widget/dragtarget_widget.dart'
 import 'home_view_widget/draggable_widget.dart';
 
 class MyView extends StatelessWidget {
-  MyView({super.key});
+ const MyView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,17 +49,13 @@ class MyView extends StatelessWidget {
                       (screenHeight(20)).ph,
                       Divider(thickness: screenWidth(40)),
                       (screenHeight(40)).ph,
-                      Wrap(
+                      Wrap(spacing: screenWidth(10),runSpacing: screenWidth(40),
                           crossAxisAlignment: WrapCrossAlignment.start,
                           children: List.generate(
                               homeController.classifications.length, (index) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: screenWidth(30)),
-                              child: DragTargetWidget(
-                                  text: homeController.classifications[index],
-                                  index: index,),
-                            );
+                            return DragTargetWidget(
+                                text: homeController.classifications[index],
+                                index: index,);
                           })),
                     ],
                   ),

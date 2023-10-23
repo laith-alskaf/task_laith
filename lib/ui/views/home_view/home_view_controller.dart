@@ -1,7 +1,12 @@
 import 'package:get/get.dart';
 
 class HomeViewController extends GetxController {
-  List<String> classifications = ['إطارات العمل', 'لغات البرمجة', 'العاب ببجي'];
+  List<String> classifications = [
+    'إطارات العمل',
+    'لغات البرمجة',
+    'العاب',
+    'غير ذالك'
+  ];
   RxList<List> droppedData = <List>[].obs;
 
   updateData(String dataNew, int index) {
@@ -12,19 +17,20 @@ class HomeViewController extends GetxController {
   removeFromClass(String dataNew, int index) {
     droppedData[index].remove(dataNew);
     listOfText.add(dataNew);
-
   }
 
   RxList<String> listOfText = [
+    'بيس 2014',
     'Python',
     'Express.js',
+    'كونتر',
     'Angular',
-    'Laravel',
     'JavaScript',
+    'Car',
     'JavaScript JavaScript',
-    'React',
-    'Swift',
-    'Vue.js'
+    'Vue.js',
+    'جنرال',
+    'Mobile',
   ].obs;
 
   @override

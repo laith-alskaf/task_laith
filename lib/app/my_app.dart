@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Task',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Alexandria',
