@@ -6,17 +6,17 @@ import 'package:task/ui/shared/extensions/custom_sized_box_shared.dart';
 import 'package:task/ui/shared/utils.dart';
 
 class DragTargetWidget extends StatelessWidget {
-   DragTargetWidget(
+  DragTargetWidget(
       {super.key,
       required this.text,
-      required this.dataDisplay,
-      required this.index});
+      // required this.dataDisplay,
+      required this.index,
+      this.onTap});
 
   final int index;
   final String text;
-  final List dataDisplay;
-
-  final HomeViewController controller = Get.put(HomeViewController());
+  // final List<String> dataDisplay;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,31 +24,17 @@ class DragTargetWidget extends StatelessWidget {
       builder: (context, List<dynamic> candidateData, rejectedData) {
         return Column(
           children: [
-            CustomContainer(
+            CustomContainer(fontSizeText: width*0.05,
               text: text,
-              heightContainer: screenHeight(10),
+              textOfDrop:  homeController.droppedData[index],
+              index:index,
             ),
-            (screenHeight(30)).ph,
-            Column(
-              children: List.generate(dataDisplay.length, (index) {
-                return Padding(
-                  padding: EdgeInsets.only(bottom: screenWidth(10)),
-                  child: CustomContainer(
-                    text: dataDisplay[index],
-                    showIconRemove: true,
-                    onTap: () {
-                      controller.removeFromClass(
-                          dataDisplay[index],this.index);
-                    },
-                  ),
-                );
-              }),
-            )
+            (screenWidth(20)).ph,
           ],
         );
       },
       onAccept: (String data) {
-        controller.updateData(data,index);
+        homeController.updateData(data, index);
       },
     );
   }

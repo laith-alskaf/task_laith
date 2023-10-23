@@ -10,9 +10,7 @@ import 'package:task/ui/views/home_view/home_view_widget/dragtarget_widget.dart'
 import 'home_view_widget/draggable_widget.dart';
 
 class MyView extends StatelessWidget {
-   MyView({super.key});
-
-  HomeViewController controller = Get.put(HomeViewController());
+  MyView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class MyView extends StatelessWidget {
                 child: Obx(
                   () => ListView(
                     children: [
-                      controller.listOfText.isEmpty
+                      homeController.listOfText.isEmpty
                           ? Center(
                               child: CustomText(
                                   text: 'List Of Text Is Empty',
@@ -35,13 +33,13 @@ class MyView extends StatelessWidget {
                               alignment: WrapAlignment.center,
                               runSpacing: width * 0.04,
                               children: List.generate(
-                                controller.listOfText.length,
+                                homeController.listOfText.length,
                                 (index) {
                                   return Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       DraggableWidget(
-                                          data: controller.listOfText[index]),
+                                          data: homeController.listOfText[index]),
                                       (screenWidth(28)).pw,
                                     ],
                                   );
@@ -51,20 +49,18 @@ class MyView extends StatelessWidget {
                       (screenHeight(20)).ph,
                       Divider(thickness: screenWidth(40)),
                       (screenHeight(40)).ph,
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          DragTargetWidget(
-                              text: controller.classifications[0],
-                              index: 0,
-                              dataDisplay: controller.droppedData[0]),
-                          DragTargetWidget(
-                              text: controller.classifications[1],
-                              index: 1,
-                              dataDisplay: controller.droppedData[1]),
-                        ],
-                      ),
+                      Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          children: List.generate(
+                              homeController.classifications.length, (index) {
+                            return Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth(30)),
+                              child: DragTargetWidget(
+                                  text: homeController.classifications[index],
+                                  index: index,),
+                            );
+                          })),
                     ],
                   ),
                 ))));

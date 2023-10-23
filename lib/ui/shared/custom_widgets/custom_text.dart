@@ -11,7 +11,8 @@ class CustomText extends StatelessWidget {
       this.fontWeight,
       this.isDecoration = false,
       this.isTextAlignCenter = false,
-      this.heighText, this.maxLine});
+      this.heighText,
+      this.maxLine});
 
   final String text;
   final double? fontsize;
@@ -28,17 +29,12 @@ class CustomText extends StatelessWidget {
       text,
       textAlign: isTextAlignCenter! ? TextAlign.center : TextAlign.right,
       maxLines: maxLine,
-
       overflow: TextOverflow.visible,
-
       style: TextStyle(
           height: heighText ?? 1.0,
-          // fontFamily: 'Alexandria-Regular',
           decoration: isDecoration ? TextDecoration.underline : null,
           color: textcolor ?? AppColors.blackColor,
-          // ignore: prefer_if_null_operators
           fontSize: fontsize ?? width * 0.035,
-          // ignore: prefer_if_null_operators
           fontWeight: fontWeight ?? FontWeight.w300),
     );
   }

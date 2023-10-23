@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task/ui/shared/colors.dart';
+import 'package:task/ui/shared/custom_widgets/custom_row_text.dart';
 import 'package:task/ui/shared/custom_widgets/custom_text.dart';
+import 'package:task/ui/shared/extensions/custom_sized_box_shared.dart';
 import 'package:task/ui/shared/utils.dart';
 
 class CustomContainer extends StatelessWidget {
@@ -9,46 +11,47 @@ class CustomContainer extends StatelessWidget {
       this.widthContainer,
       required this.text,
       this.color,
-      this.heightContainer,
-      this.onTap,
-      this.showIconRemove = false});
+      this.textOfDrop,
+      this.index,
+      this.fontSizeText});
 
   final String text;
-  final Function()? onTap;
+  final List? textOfDrop;
   final double? widthContainer;
-  final double? heightContainer;
+  final double? fontSizeText;
+  final int? index;
   final Color? color;
-  final bool? showIconRemove;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: color ?? AppColors.darkPurpleColor,
-          ),
-          height: heightContainer ?? screenHeight(16),
-          width: widthContainer ?? screenWidth(3),
-          child: Center(
-              child: CustomText(
-            text: text,
-            textcolor: AppColors.whiteColor,
-          )),
-        ),
-        showIconRemove ?? false
-            ? Positioned(
-                top: screenHeight(220),
-                left: screenWidth(80),
-                child: InkWell(
-                    onTap: onTap,
-                    child: Icon(
-                      Icons.highlight_remove,
-                      color: AppColors.whiteColor,
-                      size: screenWidth(15),
-                    )))
-            : const SizedBox(),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: color ?? AppColors.darkPurpleColor,
+            ),
+            width: widthContainer ?? screenWidth(2.7),
+            child: Column(
+              children: [
+                (screenWidth(20)).ph,
+                Center(
+                    child: CustomText(
+                  fontsize: fontSizeText,
+                  fontWeight: FontWeight.bold,
+                  text: text,
+                  textcolor: AppColors.whiteColor,
+                )),
+                (screenWidth(30)).ph,
+                textOfDrop != null
+                    ? CustomRowText(
+                        index: index ?? 1,
+                        textOfDrop: textOfDrop ?? ['جافا'],
+                      )
+                    : const SizedBox(),
+                (screenWidth(30)).ph,
+              ],
+            )),
       ],
     );
   }

@@ -6,4 +6,5 @@ class AppColors {
   static const Color transparentColor = Color.fromRGBO(255, 255, 255, 0);
   static const Color darkPurpleColor = Color.fromRGBO(111, 40, 119, 1);
   static const Color darkPurpleColorOpacity = Color.fromRGBO(111, 40, 119, 0.25);
+  static const Color  colorDropData = Colors.yellow;
 }
